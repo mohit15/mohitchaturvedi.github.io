@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mohit Chaturvedi — Senior Leader · Data · Energy · Infrastructure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+
+:root{
+  --navy:#08111f;--navy-mid:#0e1a2e;--navy-lt:#142038;
+  --teal:#0D9488;--teal-mid:#14B8A6;--teal-lt:#CCFBF1;
+  --gold:#C9973A;--gold-lt:#F0C96A;--gold-dim:rgba(201,151,58,0.12);
+  --white:#FFFFFF;--ice:#dde6f5;--slate:#8899B4;--slate-dk:#3d5070;
+  --glass:rgba(255,255,255,0.035);--glass-b:rgba(255,255,255,0.07);
+  --font-d:'Cormorant Garamond',Georgia,serif;
+  --font-b:'DM Sans',sans-serif;--font-m:'DM Mono',monospace;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+}
+
+body{background:var(--navy);color:var(--ice);font-family:var(--font-b);line-height:1.7;overflow-x:hidden}
+
+/* grain */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  opacity:0.5}
+
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--navy)}
+::-webkit-scrollbar-thumb{background:var(--teal);border-radius:2px}
+
+/* ── FLOATING SOCIAL BAR ── */
+.social-bar{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:200;display:flex;flex-direction:column;gap:2px}
+.sb{width:48px;height:48px;display:flex;align-items:center;justify-content:center;text-decoration:none;position:relative;overflow:hidden;transition:width .35s var(--ease);border-left:2px solid var(--glass-b)}
+.sb::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s}
+.sb-li{background:rgba(10,102,194,.75)}.sb-li::before{background:#0a66c2}
+.sb-fb{background:rgba(24,119,242,.75)}.sb-fb::before{background:#1877f2}
+.sb-wa{background:rgba(37,211,102,.75)}.sb-wa::before{background:#25d366}
+.sb-em{background:rgba(13,148,136,.75)}.sb-em::before{background:var(--teal)}
+.sb:hover::before{opacity:1}
+.sb svg{position:relative;z-index:1;fill:white;filter:drop-shadow(0 1px 2px rgba(0,0,0,.4))}
+.sb-tip{position:absolute;right:54px;background:var(--navy-lt);color:var(--ice);font-family:var(--font-m);font-size:.63rem;letter-spacing:.1em;padding:.28rem .65rem;white-space:nowrap;opacity:0;pointer-events:none;transform:translateX(8px);transition:all .25s ease;border:1px solid var(--glass-b)}
+.sb:hover .sb-tip{opacity:1;transform:translateX(0)}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:150;padding:1.1rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(8,17,31,.6);backdrop-filter:blur(24px);border-bottom:1px solid var(--glass-b);transition:all .4s var(--ease)}
+nav.scrolled{padding:.7rem 3rem;background:rgba(8,17,31,.96);border-bottom-color:rgba(13,148,136,.2)}
+.nav-logo{font-family:var(--font-d);font-size:1.45rem;font-weight:600;color:var(--white);text-decoration:none;letter-spacing:.02em}
+.nav-logo em{color:var(--gold);font-style:normal}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{color:var(--slate);text-decoration:none;font-size:.78rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--teal-mid);transition:width .3s var(--ease)}
+.nav-links a:hover{color:var(--white)}
+.nav-links a:hover::after{width:100%}
+
+/* ── HERO / SLIDESHOW ── */
+#hero{position:relative;min-height:100vh;overflow:hidden;display:flex;align-items:center}
+
+.slides{position:absolute;inset:0}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.8s ease,transform 8s ease;transform:scale(1.06);background-size:cover;background-position:center}
+.slide.active{opacity:1;transform:scale(1)}
+.slide-1{background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80')}
+.slide-2{background-image:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&q=80')}
+.slide-3{background-image:url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1600&q=80')}
+.slide-4{background-image:url('https://images.unsplash.com/photo-1639322537228-f710d846310a?w=1600&q=80')}
+.slide-5{background-image:url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1600&q=80')}
+.slide::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(8,17,31,.93) 0%,rgba(8,17,31,.72) 48%,rgba(8,17,31,.32) 100%)}
+
+/* progress bar */
+.slide-prog{position:absolute;bottom:0;left:0;right:0;z-index:10;display:flex;gap:3px;height:2px}
+.spi{flex:1;background:rgba(255,255,255,.12);position:relative;overflow:hidden}
+.spi::after{content:'';position:absolute;inset:0;background:var(--teal-mid);transform:scaleX(0);transform-origin:left}
+.spi.active::after{animation:pfill 5s linear forwards}
+.spi.done::after{transform:scaleX(1)}
+@keyframes pfill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* dots */
+.slide-dots{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:.6rem;align-items:center}
+.sdot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.28);cursor:pointer;transition:all .3s;border:none;padding:0}
+.sdot.active{background:var(--teal-mid);transform:scale(1.45)}
+
+/* ══════════════════════════════════════════════════════════
+   PHOTO CAROUSEL — Cinematic 3D Warp Transition
+══════════════════════════════════════════════════════════ */
+#photo-carousel{
+  background:var(--navy);
+  position:relative;
+  overflow:hidden;
+  padding:5rem 0 4rem;
+  z-index:1;
+}
+
+/* ambient glow behind carousel */
+#photo-carousel::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 30% 50%,rgba(13,148,136,.07),transparent 60%),
+    radial-gradient(ellipse 50% 50% at 80% 50%,rgba(201,151,58,.05),transparent 60%);
+  pointer-events:none;
+}
+
+/* drifting grid */
+#photo-carousel::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(13,148,136,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(13,148,136,.04) 1px,transparent 1px);
+  background-size:60px 60px;
+  animation:gdrift 28s linear infinite;
+  opacity:.6;
+}
+
+.carousel-header{
+  text-align:center;
+  position:relative;z-index:2;
+  margin-bottom:3rem;
+  padding:0 2rem;
+}
+.carousel-header .eyebrow{justify-content:center;margin-bottom:.8rem}
+.carousel-header h2{
+  font-family:var(--font-d);font-size:clamp(1.8rem,3.5vw,2.6rem);
+  font-weight:600;color:var(--white);
+}
+.carousel-header h2 em{color:var(--gold);font-style:italic}
+.carousel-header p{
+  font-family:var(--font-m);font-size:.72rem;color:var(--slate);
+  letter-spacing:.16em;text-transform:uppercase;margin-top:.6rem;
+}
+
+/* ── STAGE: 3D perspective container ── */
+.carousel-stage{
+  position:relative;
+  width:100%;
+  height:520px;
+  perspective:1200px;
+  perspective-origin:50% 50%;
+  z-index:2;
+  overflow:visible;
+}
+
+/* ── TRACK: holds all cards, slides in 3D ── */
+.carousel-track{
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transform-style:preserve-3d;
+}
+
+/* ── Each photo card ── */
+.caro-card{
+  position:absolute;
+  width:360px;
+  height:440px;
+  border-radius:2px;
+  overflow:hidden;
+  cursor:pointer;
+  transform-style:preserve-3d;
+  /* positioned by JS */
+  transition:
+    transform 0.9s cubic-bezier(0.16,1,0.3,1),
+    opacity   0.9s cubic-bezier(0.16,1,0.3,1),
+    filter    0.9s ease,
+    box-shadow 0.9s ease;
+  will-change:transform,opacity;
+}
+
+/* Photo inside card */
+.caro-img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+  transition:transform 8s ease;
+  background:var(--navy-lt);
+  user-select:none;
+  pointer-events:none;
+}
+.caro-card.is-active .caro-img{
+  transform:scale(1.04);
+}
+
+/* Caption overlay — slides up on active */
+.caro-caption{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  padding:2rem 1.6rem 1.4rem;
+  background:linear-gradient(transparent,rgba(8,17,31,.92) 60%);
+  transform:translateY(100%);
+  transition:transform .5s var(--ease);
+  z-index:3;
+}
+.caro-card.is-active .caro-caption{transform:translateY(0)}
+.caro-caption-title{
+  font-family:var(--font-d);font-size:1.15rem;font-weight:600;
+  color:var(--white);margin-bottom:.2rem;
+}
+.caro-caption-sub{
+  font-family:var(--font-m);font-size:.65rem;color:var(--teal-mid);
+  letter-spacing:.12em;text-transform:uppercase;
+}
+
+/* Decorative teal border frame on active card */
+.caro-card.is-active::before{
+  content:'';
+  position:absolute;inset:0;
+  border:1px solid rgba(13,148,136,.45);
+  z-index:4;pointer-events:none;
+  transition:border-color .5s;
+}
+/* gold corner accents on active */
+.caro-card.is-active::after{
+  content:'';
+  position:absolute;
+  top:-1px;left:-1px;
+  width:28px;height:28px;
+  border-top:2px solid var(--gold);
+  border-left:2px solid var(--gold);
+  z-index:5;pointer-events:none;
+}
+
+/* reflection strip at bottom of active card */
+.caro-reflect{
+  position:absolute;
+  bottom:-60px;left:0;right:0;height:60px;
+  background:inherit;
+  transform:scaleY(-1);
+  opacity:.12;
+  filter:blur(4px);
+  mask-image:linear-gradient(transparent,rgba(0,0,0,.6));
+  pointer-events:none;
+}
+
+/* ── Navigation arrows ── */
+.carousel-nav{
+  position:absolute;
+  top:50%;transform:translateY(-50%);
+  z-index:10;
+  width:50px;height:50px;
+  background:rgba(8,17,31,.7);
+  border:1px solid var(--glass-b);
+  backdrop-filter:blur(12px);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .3s var(--ease);
+  clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
+}
+.carousel-nav:hover{background:var(--teal);border-color:var(--teal)}
+.carousel-nav svg{transition:transform .3s}
+.carousel-nav:hover svg{transform:scale(1.2)}
+.carousel-nav-prev{left:2rem}
+.carousel-nav-next{right:2rem}
+
+/* ── Dot nav ── */
+.carousel-dots{
+  display:flex;gap:.7rem;justify-content:center;align-items:center;
+  margin-top:2.8rem;position:relative;z-index:2;
+}
+.cdot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,.2);
+  border:none;padding:0;cursor:pointer;
+  transition:all .35s var(--ease);
+}
+.cdot.active{
+  background:var(--teal-mid);
+  width:24px;border-radius:3px;
+  box-shadow:0 0 8px rgba(20,184,166,.5);
+}
+
+/* ── Counter badge ── */
+.carousel-counter{
+  position:absolute;top:1.5rem;right:2rem;z-index:10;
+  font-family:var(--font-m);font-size:.7rem;
+  color:var(--slate);letter-spacing:.12em;
+}
+.carousel-counter span{color:var(--teal-mid);font-weight:500}
+
+/* ── Add photo instruction (visible only to site owner) ── */
+.carousel-hint{
+  text-align:center;
+  margin-top:1.5rem;
+  font-family:var(--font-m);font-size:.65rem;
+  color:var(--slate-dk);letter-spacing:.12em;
+  position:relative;z-index:2;
+}
+
+/* Shimmer for empty placeholder slots */
+@keyframes shimmer{
+  0%{background-position:-400px 0}
+  100%{background-position:400px 0}
+}
+.caro-placeholder{
+  width:100%;height:100%;
+  background:linear-gradient(90deg,var(--navy-lt) 25%,rgba(20,37,64,.6) 50%,var(--navy-lt) 75%);
+  background-size:800px 100%;
+  animation:shimmer 2s infinite linear;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;
+}
+.caro-placeholder-icon{font-size:2rem;opacity:.3}
+.caro-placeholder-text{
+  font-family:var(--font-m);font-size:.65rem;color:var(--slate-dk);
+  letter-spacing:.14em;text-transform:uppercase;opacity:.5;
+}
+
+/* grid anim */
+.hero-grid{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background-image:linear-gradient(rgba(13,148,136,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(13,148,136,.055) 1px,transparent 1px);
+  background-size:80px 80px;animation:gdrift 22s linear infinite}
+@keyframes gdrift{0%{background-position:0 0}100%{background-position:80px 80px}}
+
+/* particles */
+.hero-particles{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.particle{position:absolute;width:2px;height:2px;border-radius:50%;opacity:0;animation:pfloat var(--dur,8s) var(--del,0s) infinite ease-in-out}
+@keyframes pfloat{0%{opacity:0;transform:translateY(80px) scale(0)}10%{opacity:.55}90%{opacity:.15}100%{opacity:0;transform:translateY(-180px) scale(.4)}}
+
+/* orbs */
+.horb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;animation:opulse var(--dur,12s) ease-in-out infinite alternate;z-index:1}
+@keyframes opulse{0%{opacity:.35;transform:scale(1)}100%{opacity:.7;transform:scale(1.18)}}
+
+/* content */
+.hero-content{position:relative;z-index:5;padding:0 6rem;max-width:900px;padding-top:100px}
+
+.hero-tag{display:inline-flex;align-items:center;gap:.7rem;margin-bottom:1.8rem;opacity:0;animation:fadeUp .9s var(--ease) .3s forwards}
+.htdot{width:8px;height:8px;border-radius:50%;background:var(--teal-mid);animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.hero-tag span{font-family:var(--font-m);font-size:.72rem;color:var(--teal-mid);letter-spacing:.22em;text-transform:uppercase}
+
+h1.hn{font-family:var(--font-d);font-size:clamp(3.8rem,8vw,7rem);font-weight:700;line-height:.95;color:var(--white);margin-bottom:.55rem;opacity:0;animation:fadeUp .9s var(--ease) .5s forwards}
+h1.hn .acc{color:var(--gold);display:block}
+
+.hero-role{font-family:var(--font-d);font-size:clamp(1.1rem,2.2vw,1.55rem);font-weight:300;font-style:italic;color:var(--teal-lt);margin-bottom:1.8rem;opacity:0;animation:fadeUp .9s var(--ease) .7s forwards}
+
+.hero-tagline{font-size:.98rem;color:var(--slate);max-width:520px;line-height:1.9;margin-bottom:2.6rem;opacity:0;animation:fadeUp .9s var(--ease) .9s forwards}
+.tw{color:var(--ice);font-weight:500;border-right:2px solid var(--teal-mid);white-space:nowrap;overflow:hidden;display:inline-block;min-height:1.4em}
+
+.hero-stats{display:flex;gap:2.5rem;margin-bottom:2.6rem;opacity:0;animation:fadeUp .9s var(--ease) 1.1s forwards}
+.hsv{font-family:var(--font-d);font-size:2.5rem;font-weight:700;color:var(--gold);line-height:1}
+.hsl{font-family:var(--font-m);font-size:.63rem;color:var(--slate);letter-spacing:.14em;text-transform:uppercase;margin-top:.25rem}
+
+.hero-ctas{display:flex;gap:1rem;opacity:0;animation:fadeUp .9s var(--ease) 1.3s forwards}
+.btn-p{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;background:var(--teal);color:var(--white);border:none;font-family:var(--font-b);font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;position:relative;overflow:hidden;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));transition:all .3s}
+.btn-p::before{content:'';position:absolute;inset:0;background:var(--teal-mid);transform:translateX(-100%);transition:transform .3s var(--ease)}
+.btn-p:hover::before{transform:translateX(0)}.btn-p span{position:relative;z-index:1}
+.btn-o{display:inline-flex;align-items:center;padding:.85rem 2rem;background:transparent;color:var(--ice);border:1px solid var(--glass-b);font-family:var(--font-b);font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));transition:all .3s}
+.btn-o:hover{border-color:var(--teal-mid);color:var(--teal-mid)}
+
+.scroll-cue{position:absolute;bottom:3.5rem;left:6rem;z-index:5;display:flex;align-items:center;gap:.8rem;opacity:0;animation:fadeUp .8s var(--ease) 2s forwards}
+.scroll-cue span{font-family:var(--font-m);font-size:.62rem;color:var(--slate);letter-spacing:.2em;text-transform:uppercase}
+.sarr{width:28px;height:28px;border:1px solid rgba(13,148,136,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;animation:abounce 1.8s ease infinite}
+@keyframes abounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+/* ── PROFILE SECTION ── */
+#profile{background:var(--navy-mid);position:relative;overflow:hidden}
+#profile::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(13,148,136,.055),transparent 70%);pointer-events:none}
+
+.profile-inner{max-width:1200px;margin:0 auto;padding:7rem 3rem;display:grid;grid-template-columns:340px 1fr;gap:6rem;align-items:center}
+
+.ppw{position:relative;opacity:0;transform:translateX(-30px);transition:all .85s var(--ease)}
+.ppw.visible{opacity:1;transform:translateX(0)}
+
+.ppf{position:relative;width:300px;height:370px;margin:0 auto}
+
+.pb1{position:absolute;inset:-12px;border:1px solid rgba(13,148,136,.28);animation:bspin 9s linear infinite}
+.pb1::before{content:'';position:absolute;top:-3px;left:50%;width:7px;height:7px;border-radius:50%;background:var(--teal-mid);transform:translateX(-50%);box-shadow:0 0 10px var(--teal-mid)}
+.pb2{position:absolute;inset:-22px;border:1px solid rgba(201,151,58,.13);animation:bspin 15s linear infinite reverse}
+@keyframes bspin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+
+.pc{position:absolute;width:20px;height:20px}
+.pc-tl{top:-1px;left:-1px;border-top:2px solid var(--teal);border-left:2px solid var(--teal)}
+.pc-tr{top:-1px;right:-1px;border-top:2px solid var(--teal);border-right:2px solid var(--teal)}
+.pc-bl{bottom:-1px;left:-1px;border-bottom:2px solid var(--teal);border-left:2px solid var(--teal)}
+.pc-br{bottom:-1px;right:-1px;border-bottom:2px solid var(--teal);border-right:2px solid var(--teal)}
+
+.profile-photo{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;filter:grayscale(15%) contrast(1.06);transition:filter .4s;background:var(--navy-lt)}
+.ppf:hover .profile-photo{filter:grayscale(0%) contrast(1.1)}
+
+.pbadge{position:absolute;bottom:-18px;right:-18px;background:rgba(14,26,46,.92);border:1px solid var(--glass-b);backdrop-filter:blur(16px);padding:.9rem 1.2rem;min-width:148px}
+.pbv{font-family:var(--font-d);font-size:1.7rem;font-weight:700;color:var(--gold);line-height:1}
+.pbl{font-family:var(--font-m);font-size:.6rem;color:var(--slate);letter-spacing:.12em;text-transform:uppercase;margin-top:.2rem}
+
+.pglow{position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);width:200px;height:60px;background:rgba(13,148,136,.13);filter:blur(25px);border-radius:50%}
+
+.profile-text{opacity:0;transform:translateX(30px);transition:all .85s var(--ease) .2s}
+.profile-text.visible{opacity:1;transform:translateX(0)}
+
+/* shared eyebrow */
+.eyebrow{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem}
+.eyebrow-line{width:28px;height:1px;background:var(--teal)}
+.eyebrow span{font-family:var(--font-m);font-size:.7rem;color:var(--teal-mid);letter-spacing:.2em;text-transform:uppercase}
+
+h2.st{font-family:var(--font-d);font-size:clamp(2rem,4vw,3rem);font-weight:600;line-height:1.15;color:var(--white);margin-bottom:1.2rem}
+h2.st em{color:var(--gold);font-style:italic}
+
+.pbio{font-size:.98rem;color:var(--slate);line-height:1.9;margin-bottom:1.1rem}
+.pbio strong{color:var(--ice);font-weight:500}
+
+.creds{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.4rem}
+.cred{display:flex;align-items:center;gap:.45rem;font-family:var(--font-m);font-size:.67rem;color:var(--teal-mid);letter-spacing:.07em;border:1px solid rgba(13,148,136,.22);padding:.28rem .75rem;transition:all .2s}
+.cred:hover{background:rgba(13,148,136,.07);border-color:var(--teal)}
+
+/* ── SHARED ── */
+.sec-inner{max-width:1200px;margin:0 auto;padding:6rem 3rem}
+.sec-sub{font-size:.95rem;color:var(--slate);max-width:520px;line-height:1.85;margin-bottom:3.5rem}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rev-l{opacity:0;transform:translateX(-24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rev-l.visible{opacity:1;transform:translateX(0)}
+
+/* ── IMPACT ── */
+#impact{background:var(--navy);overflow:hidden;position:relative}
+#impact::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(13,148,136,.05),transparent 60%);pointer-events:none}
+.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--glass-b)}
+.ic{padding:3.5rem 2.5rem;border-right:1px solid var(--glass-b);position:relative;overflow:hidden;text-align:center}
+.ic:last-child{border-right:none}
+.ic::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--teal),transparent);transform:scaleX(0);transform-origin:center;transition:transform .5s var(--ease)}
+.ic:hover::before{transform:scaleX(1)}
+.ic::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(13,148,136,.055),transparent 70%);opacity:0;transition:opacity .3s}
+.ic:hover::after{opacity:1}
+.iv{font-family:var(--font-d);font-size:3.5rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:.5rem}
+.il{font-family:var(--font-m);font-size:.68rem;color:var(--slate);letter-spacing:.15em;text-transform:uppercase;line-height:1.6}
+
+/* ── EXPERIENCE ── */
+#experience{background:var(--navy-mid)}
+.timeline{position:relative;padding-left:2.8rem}
+.timeline::before{content:'';position:absolute;left:4px;top:.5rem;bottom:0;width:1px;background:linear-gradient(var(--teal),rgba(13,148,136,.08))}
+
+.tli{position:relative;margin-bottom:3rem;opacity:0;transform:translateX(-20px);transition:all .7s var(--ease)}
+.tli.visible{opacity:1;transform:translateX(0)}
+.tdot{position:absolute;left:-2.8rem;top:.35rem;width:12px;height:12px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 3px rgba(13,148,136,.15),0 0 12px rgba(13,148,136,.4);margin-left:-6px}
+.tdot.gold{background:var(--gold);box-shadow:0 0 0 3px rgba(201,151,58,.15),0 0 12px rgba(201,151,58,.4)}
+
+.tlc{background:var(--glass);border:1px solid var(--glass-b);padding:2rem 2.2rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.tlc:hover{border-color:rgba(13,148,136,.28);transform:translateX(4px)}
+.tlc::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(var(--teal),transparent);transform:scaleY(0);transform-origin:top;transition:transform .4s var(--ease)}
+.tlc:hover::before{transform:scaleY(1)}
+
+.tlh{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap;margin-bottom:.25rem}
+.tlco{font-family:var(--font-d);font-size:1.4rem;font-weight:600;color:var(--white)}
+.tlperiod{font-family:var(--font-m);font-size:.68rem;color:var(--teal-mid);letter-spacing:.12em;padding:.2rem .7rem;border:1px solid rgba(13,148,136,.25);white-space:nowrap}
+.tlrole{font-size:.82rem;color:var(--gold);font-weight:500;letter-spacing:.04em;margin-bottom:1rem}
+.tlpts{list-style:none}
+.tlpts li{font-size:.88rem;color:var(--slate);line-height:1.75;padding:.25rem 0;display:flex;gap:.8rem;align-items:flex-start}
+.tlpts li::before{content:'›';color:var(--teal);font-size:1rem;flex-shrink:0}
+.tlpts li strong{color:var(--ice);font-weight:500}
+.tltags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
+.tlt{font-family:var(--font-m);font-size:.61rem;color:var(--slate-dk);background:rgba(255,255,255,.035);border:1px solid var(--glass-b);padding:.14rem .52rem;letter-spacing:.08em}
+
+/* ── EXPERTISE ── */
+#expertise{background:var(--navy)}
+.eg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.ecard{background:var(--glass);border:1px solid var(--glass-b);padding:2rem 1.8rem;position:relative;overflow:hidden;transition:all .3s var(--ease)}
+.ecard:hover{border-color:rgba(13,148,136,.3);transform:translateY(-4px)}
+.ecard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),transparent);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.ecard:hover::after{transform:scaleX(1)}
+.eicon{width:48px;height:48px;background:rgba(13,148,136,.09);border:1px solid rgba(13,148,136,.18);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.2rem}
+.etitle{font-family:var(--font-d);font-size:1.1rem;font-weight:600;color:var(--white);margin-bottom:.6rem}
+.edesc{font-size:.84rem;color:var(--slate);line-height:1.75;margin-bottom:1rem}
+.etags{display:flex;flex-wrap:wrap;gap:.4rem}
+.etag{font-family:var(--font-m);font-size:.62rem;color:var(--teal-mid);border:1px solid rgba(13,148,136,.18);padding:.14rem .52rem;letter-spacing:.06em;transition:all .2s}
+.etag:hover{background:rgba(13,148,136,.08)}
+
+/* ── COMMUNITY ── */
+#community{background:var(--navy-mid)}
+.cg{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.ccard{background:var(--glass);border:1px solid var(--glass-b);padding:1.8rem 2rem;display:flex;gap:1.4rem;align-items:flex-start;transition:all .3s var(--ease)}
+.ccard:hover{border-color:rgba(201,151,58,.22);transform:translateY(-3px)}
+.cicon{width:50px;height:50px;flex-shrink:0;background:var(--gold-dim);border:1px solid rgba(201,151,58,.18);display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+.crole{font-family:var(--font-m);font-size:.64rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.25rem}
+.corg{font-family:var(--font-d);font-size:1.05rem;font-weight:600;color:var(--white);margin-bottom:.4rem}
+.cdesc{font-size:.83rem;color:var(--slate);line-height:1.7}
+
+/* ── EDUCATION ── */
+#education{background:var(--navy)}
+.edu-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.edu-c{background:var(--glass);border:1px solid var(--glass-b);padding:2rem;position:relative;overflow:hidden;transition:all .3s var(--ease)}
+.edu-c::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(var(--teal),transparent);transform:scaleY(0);transform-origin:top;transition:transform .4s var(--ease)}
+.edu-c:hover::before{transform:scaleY(1)}
+.edu-c:hover{border-color:rgba(13,148,136,.22);transform:translateY(-3px)}
+.edu-yr{font-family:var(--font-m);font-size:.68rem;color:var(--teal-mid);letter-spacing:.15em;margin-bottom:.8rem}
+.edu-deg{font-family:var(--font-d);font-size:1.1rem;font-weight:600;color:var(--white);margin-bottom:.3rem;line-height:1.3}
+.edu-inst{font-size:.82rem;color:var(--gold);font-weight:500}
+
+/* ── CONTACT ── */
+#contact{background:var(--navy-lt);border-top:1px solid var(--glass-b)}
+.contact-inner{max-width:1200px;margin:0 auto;padding:6rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.chl{font-family:var(--font-d);font-size:clamp(2rem,4vw,3rem);font-weight:600;color:var(--white);line-height:1.2;margin-bottom:1rem}
+.chl em{color:var(--gold);font-style:italic}
+.csub{font-size:.95rem;color:var(--slate);line-height:1.85;margin-bottom:2rem}
+.clnks{display:flex;flex-direction:column;gap:.8rem}
+.clnk{display:flex;align-items:center;gap:1rem;text-decoration:none;color:var(--ice);padding:1rem 1.2rem;background:var(--glass);border:1px solid var(--glass-b);transition:all .3s var(--ease)}
+.clnk:hover{border-color:var(--teal);color:var(--teal-mid);transform:translateX(6px)}
+.clnk-ico{width:36px;height:36px;flex-shrink:0;background:rgba(13,148,136,.09);border:1px solid rgba(13,148,136,.18);display:flex;align-items:center;justify-content:center;font-size:.9rem}
+.clnk-t{font-size:.88rem;font-weight:500}
+.clnk-s{font-size:.72rem;color:var(--slate);margin-top:.1rem}
+
+footer{background:var(--navy);border-top:1px solid var(--glass-b);padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center}
+footer p{font-family:var(--font-m);font-size:.7rem;color:var(--slate-dk);letter-spacing:.08em}
+.fnav{display:flex;gap:2rem}
+.fnav a{font-family:var(--font-m);font-size:.7rem;color:var(--slate-dk);text-decoration:none;letter-spacing:.08em;transition:color .2s}
+.fnav a:hover{color:var(--teal-mid)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+/* responsive */
+@media(max-width:1024px){.profile-inner{grid-template-columns:280px 1fr;gap:4rem}.impact-grid{grid-template-columns:repeat(2,1fr)}.eg{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){nav{padding:1rem 1.5rem}.hero-content{padding:0 1.5rem;padding-top:100px}.hero-stats{gap:1.5rem;flex-wrap:wrap}.profile-inner{grid-template-columns:1fr;gap:3rem}.ppf{width:240px;height:295px}.impact-grid{grid-template-columns:repeat(2,1fr)}.eg{grid-template-columns:1fr}.cg{grid-template-columns:1fr}.edu-g{grid-template-columns:1fr}.contact-inner{grid-template-columns:1fr;gap:3rem}.nav-links{display:none}.social-bar{display:none}.sec-inner{padding:4rem 1.5rem}footer{flex-direction:column;gap:1rem;text-align:center}}
+</style>
+</head>
+<body>
+
+<!-- FLOATING SOCIAL BAR -->
+<div class="social-bar">
+  <a href="https://www.linkedin.com/in/chaturmohit/" target="_blank" class="sb sb-li">
+    <svg width="18" height="18" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    <span class="sb-tip">LinkedIn</span>
+  </a>
+  <a href="https://www.facebook.com/chaturmohitji" target="_blank" class="sb sb-fb">
+    <svg width="18" height="18" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    <span class="sb-tip">Facebook</span>
+  </a>
+  <a href="https://wa.me/+447584267818" target="_blank" class="sb sb-wa">
+    <svg width="18" height="18" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="sb-tip">WhatsApp</span>
+  </a>
+  <a href="mailto:15.mohit@gmail.com" class="sb sb-em">
+    <svg width="18" height="18" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    <span class="sb-tip">Email</span>
+  </a>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">Mohit <em>Chaturvedi</em></a>
+  <ul class="nav-links">
+    <li><a href="#photo-carousel">Gallery</a></li>
+    <li><a href="#profile">Profile</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#community">Community</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO / SLIDESHOW -->
+<section id="hero">
+  <div class="slides" id="slides">
+    <div class="slide slide-1 active"></div>
+    <div class="slide slide-2"></div>
+    <div class="slide slide-3"></div>
+    <div class="slide slide-4"></div>
+    <div class="slide slide-5"></div>
+  </div>
+
+  <div class="hero-grid"></div>
+  <div class="hero-particles" id="particles"></div>
+
+  <div class="horb" style="width:500px;height:500px;top:-100px;right:-50px;background:rgba(13,148,136,.07);--dur:14s"></div>
+  <div class="horb" style="width:350px;height:350px;bottom:0;left:5%;background:rgba(201,151,58,.05);--dur:10s"></div>
+
+  <div class="slide-prog" id="prog">
+    <div class="spi active"></div><div class="spi"></div><div class="spi"></div><div class="spi"></div><div class="spi"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-tag"><div class="htdot"></div><span>Senior Leader · Data · Energy · Infrastructure</span></div>
+    <h1 class="hn">Mohit<span class="acc">Chaturvedi</span></h1>
+    <p class="hero-role">Transforming Data into Decisions. Infrastructure into Impact.</p>
+    <p class="hero-tagline"><span class="tw" id="tw"></span></p>
+    <div class="hero-stats">
+      <div><div class="hsv">24</div><div class="hsl">Years in<br>Technology</div></div>
+      <div><div class="hsv">£4M+</div><div class="hsl">Cost Savings<br>Delivered</div></div>
+      <div><div class="hsv">5M+</div><div class="hsl">Smart Meters<br>Managed</div></div>
+      <div><div class="hsv">3</div><div class="hsl">National Forums<br>Represented</div></div>
+    </div>
+    <div class="hero-ctas">
+      <a href="#profile" class="btn-p"><span>View Profile</span></a>
+      <a href="#contact" class="btn-o">Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <div class="sarr"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#14B8A6" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+  </div>
+
+  <div class="slide-dots" id="dots">
+    <button class="sdot active" data-i="0"></button>
+    <button class="sdot" data-i="1"></button>
+    <button class="sdot" data-i="2"></button>
+    <button class="sdot" data-i="3"></button>
+    <button class="sdot" data-i="4"></button>
+  </div>
+</section>
+
+<!-- PHOTO CAROUSEL -->
+<section id="photo-carousel">
+  <div class="carousel-header reveal">
+    <div class="eyebrow"><div class="eyebrow-line"></div><span>Photo Gallery</span></div>
+    <h2>Moments that <em>define the journey</em></h2>
+    <p>Add your photos — each slot below is ready</p>
+  </div>
+
+  <div class="carousel-stage" id="caroStage">
+    <div class="carousel-counter"><span id="caroIdx">1</span> / <span id="caroTotal">6</span></div>
+    <div class="carousel-track" id="caroTrack">
+      <!-- Cards injected by JS -->
+    </div>
+
+    <button class="carousel-nav carousel-nav-prev" id="caroPrev" aria-label="Previous">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="carousel-nav carousel-nav-next" id="caroNext" aria-label="Next">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+
+  <div class="carousel-dots" id="caroDots"></div>
+  <p class="carousel-hint">To add your photos: replace the src="" values in the CAROUSEL_PHOTOS array in the script below</p>
+</section>
+
+<!-- PROFILE -->
+<section id="profile">
+  <div class="profile-inner">
+    <div class="ppw rev-l">
+      <div class="ppf">
+        <div class="pb2"></div>
+        <div class="pb1"></div>
+        <div class="pc pc-tl"></div><div class="pc pc-tr"></div>
+        <div class="pc pc-bl"></div><div class="pc pc-br"></div>
+        <img
+          src="https://lh3.googleusercontent.com/sitesv/AA5AbUAY82los3SBSlB-S8cwYa0wz0z3DT5lsSYY_dBnZOmzCISFSbAOtaEXOUy6ZVyPBGv6BbyULPCHrFKgFEbiTd9PibqoitOoFPG3XlnUjr8XZiK_Otjt0_KZFfUuVPELtzWTScmLlBsBg40SG69BKLnoGNxVAYE0v0HtU0T-iNYAb1PWNEW-PVINpruj-pFx_egUcCnaxIUNnQGS1KLZdHOyhjgsDoNfyJ3GDQk=w600"
+          alt="Mohit Chaturvedi — Senior Leader"
+          class="profile-photo"
+          onerror="this.style.background='var(--navy-lt)'"
+        />
+        <div class="pbadge">
+          <div class="pbv">Top</div>
+          <div class="pbl">Performer<br>2 Consecutive Cycles</div>
+        </div>
+        <div class="pglow"></div>
+      </div>
+    </div>
+
+    <div class="profile-text reveal">
+      <div class="eyebrow"><div class="eyebrow-line"></div><span>Leadership Profile</span></div>
+      <h2 class="st">Building the capability<br>that <em>didn't yet exist</em></h2>
+      <p class="pbio">I am a senior technology leader with <strong>24 years of experience</strong> shaping national infrastructure, data strategy, and digital transformation across the UK and India. My career has a single defining thread: I identify the data and analytical capability an organisation needs but doesn't yet have — make the case for it, build it from the ground up, and use it to fundamentally change how decisions get made.</p>
+      <p class="pbio">At <strong>Smart DCC</strong>, I serve as the CTO team's trusted authority on data architecture — representing DCC at national regulatory forums (TABASC, DESNZ, CFDA), delivering <strong>£4M+ in cost optimisation</strong>, and rated top performer in two consecutive cycles. At <strong>Telefonica UK</strong>, I built the UK's first Smart Meter Data Lake from zero — and used it to surface a systemic fault affecting <strong>700,000 devices</strong> that was completely invisible before the platform existed.</p>
+      <p class="pbio">I am a strategic operator — equally at home advising at board level, presenting to regulators, and leading the teams who deliver the outcomes. I bring both <strong>executive presence and engineering depth</strong>, and I use both to drive real, measurable impact.</p>
+      <div class="creds">
+        <span class="cred">🎓 MIT Advanced Data Analytics</span>
+        <span class="cred">📊 IIM Calcutta Strategic Management</span>
+        <span class="cred">⚡ DCC Top Performer ×2</span>
+        <span class="cred">🏛️ TABASC · DESNZ · CFDA</span>
+        <span class="cred">🎓 BEng, University of Pune</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact">
+  <div class="sec-inner" style="padding-bottom:0;padding-top:5rem">
+    <div class="eyebrow reveal"><div class="eyebrow-line"></div><span>Measured Outcomes</span></div>
+    <h2 class="st reveal" style="margin-bottom:3rem">Outcomes, <em>not outputs</em></h2>
+  </div>
+  <div class="impact-grid">
+    <div class="ic reveal"><div class="iv" data-target="4" data-prefix="£" data-suffix="M+">£4M+</div><div class="il">Cost Savings<br>Delivered at DCC</div></div>
+    <div class="ic reveal"><div class="iv" data-target="5" data-suffix="M+">5M+</div><div class="il">Smart Meters<br>Under Management</div></div>
+    <div class="ic reveal"><div class="iv" data-target="12" data-suffix="K km">12K km</div><div class="il">Fibre Network<br>Built in India</div></div>
+    <div class="ic reveal"><div class="iv" data-target="24" data-suffix="">24</div><div class="il">Years Across<br>UK &amp; India</div></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="sec-inner">
+    <div class="eyebrow reveal"><div class="eyebrow-line"></div><span>Career Journey</span></div>
+    <h2 class="st reveal">24 years built <em>for this</em></h2>
+    <p class="sec-sub reveal">From network engineering in India to shaping Britain's national smart energy infrastructure — a career defined by building what doesn't yet exist.</p>
+
+    <div class="timeline">
+
+      <div class="tli">
+        <div class="tdot gold"></div>
+        <div class="tlc">
+          <div class="tlh"><div class="tlco">Smart DCC</div><div class="tlperiod">2022 — Present</div></div>
+          <div class="tlrole">Senior Solution Architect · CTO Team · UK</div>
+          <ul class="tlpts">
+            <li>Trusted data and design authority for the CTO — <strong>represented DCC at TABASC, DESNZ and CFDA</strong>, shaping Britain's smart energy regulatory and strategic positions</li>
+            <li>Delivered <strong>£4M+ in cost optimisation</strong> through evidence-based challenge of supplier assumptions and data-driven programme governance</li>
+            <li>Led architecture across <strong>4G Communication Hubs, FSM, 3G Sunset and SECMOD</strong> — ensuring E2E data design integrity across 30 million devices</li>
+            <li>Introduced governance frameworks (Bizzdesign, Azure DevOps) creating programme-wide design traceability</li>
+            <li>Rated <strong>Top Performer in two consecutive performance cycles</strong></li>
+          </ul>
+          <div class="tltags"><span class="tlt">Strategic Leadership</span><span class="tlt">Regulatory Affairs</span><span class="tlt">Data Architecture</span><span class="tlt">Executive Engagement</span></div>
+        </div>
+      </div>
+
+      <div class="tli">
+        <div class="tdot gold"></div>
+        <div class="tlc">
+          <div class="tlh"><div class="tlco">Telefonica UK (O2)</div><div class="tlperiod">2019 — 2022</div></div>
+          <div class="tlrole">Lead — Smart Metering Programme · UK</div>
+          <ul class="tlpts">
+            <li>Built and led an 8-person specialist function from zero — scaling to manage <strong>5 million smart meter devices</strong> without proportional headcount growth</li>
+            <li><strong>Designed and delivered the UK's first Smart Meter Data Lake</strong> — secured funding through sustained executive engagement, architected the platform to serve CXO and engineering audiences simultaneously</li>
+            <li>Surfaced the WNC No PDP fault affecting <strong>700,000 devices</strong> — invisible before the platform — enabling full supplier accountability and remediation</li>
+            <li>Deployed AI-enabled automation tools, transforming time-to-insight across operational triage</li>
+          </ul>
+          <div class="tltags"><span class="tlt">Data Lake Architecture</span><span class="tlt">Team Leadership</span><span class="tlt">AI &amp; Analytics</span><span class="tlt">Executive Reporting</span></div>
+        </div>
+      </div>
+
+      <div class="tli">
+        <div class="tdot"></div>
+        <div class="tlc">
+          <div class="tlh"><div class="tlco">Accenture UK</div><div class="tlperiod">2016 — 2019</div></div>
+          <div class="tlrole">Delivery Manager · Smart Metering &amp; Vodafone · UK</div>
+          <ul class="tlpts">
+            <li>Led end-to-end service delivery for the SMETS2 rollout and managed a <strong>£1M annual delivery portfolio</strong> for Vodafone IT integration testing</li>
+            <li>Established structured governance across a complex multi-supplier environment; drove testing automation at scale</li>
+          </ul>
+          <div class="tltags"><span class="tlt">Programme Delivery</span><span class="tlt">Service Management</span><span class="tlt">Automation</span></div>
+        </div>
+      </div>
+
+      <div class="tli">
+        <div class="tdot"></div>
+        <div class="tlc">
+          <div class="tlh"><div class="tlco">Idea Cellular · Airtel · Reliance</div><div class="tlperiod">2002 — 2016</div></div>
+          <div class="tlrole">Engineering &amp; Planning Leadership · India</div>
+          <ul class="tlpts">
+            <li>14 years building national telecom infrastructure — led the rollout of a <strong>12,000 KM fibre network</strong> supporting 2G/3G/4G across Maharashtra</li>
+            <li>Built the data analytics capability that underpins all subsequent leadership: KPI monitoring, inventory management, capital planning, Six Sigma optimisation</li>
+          </ul>
+          <div class="tltags"><span class="tlt">National Infrastructure</span><span class="tlt">Data Analytics</span><span class="tlt">Engineering Leadership</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="sec-inner">
+    <div class="eyebrow reveal"><div class="eyebrow-line"></div><span>Areas of Expertise</span></div>
+    <h2 class="st reveal">Where I <em>lead</em></h2>
+    <p class="sec-sub reveal">Six domains where 24 years of hands-on leadership meets strategic impact.</p>
+    <div class="eg">
+      <div class="ecard reveal"><div class="eicon">⚡</div><div class="etitle">Smart Energy &amp; National Infrastructure</div><div class="edesc">Shaping Britain's smart metering ecosystem from SMETS2 architecture to the operational performance of 30M devices. Deep regulatory fluency across Ofgem, DESNZ, and DCC's national obligations.</div><div class="etags"><span class="etag">SMETS2</span><span class="etag">4G CH</span><span class="etag">NEP</span><span class="etag">3G Sunset</span></div></div>
+      <div class="ecard reveal"><div class="eicon">🗄️</div><div class="etitle">Data Architecture &amp; Governance</div><div class="edesc">Designing data platforms that change decisions, not just store data. Built the UK's first Smart Meter Data Lake from zero; introduced governance frameworks delivering £M+ in avoided costs.</div><div class="etags"><span class="etag">Data Lake</span><span class="etag">Bizzdesign</span><span class="etag">Azure DevOps</span></div></div>
+      <div class="ecard reveal"><div class="eicon">🤖</div><div class="etitle">Advanced Analytics &amp; AI</div><div class="edesc">Translating data into executive narratives that drive action. CXO dashboards, predictive maintenance, AI-enabled automation — focused on tangible outcomes, not technical demonstrations.</div><div class="etags"><span class="etag">Tableau</span><span class="etag">Power BI</span><span class="etag">Predictive ML</span></div></div>
+      <div class="ecard reveal"><div class="eicon">🏛️</div><div class="etitle">Regulatory &amp; Executive Influence</div><div class="edesc">Trusted voice at national level — TABASC, CFDA, DESNZ. Building consensus across government, regulators, suppliers, and operators. Making complex positions land at board level.</div><div class="etags"><span class="etag">TABASC</span><span class="etag">DESNZ</span><span class="etag">CFDA</span><span class="etag">Ofgem</span></div></div>
+      <div class="ecard reveal"><div class="eicon">🚀</div><div class="etitle">Programme Leadership</div><div class="edesc">Leading major, concurrent programmes in regulated national infrastructure — building cohesive operating models, managing complex supplier relationships, and delivering through others at scale.</div><div class="etags"><span class="etag">Programme Governance</span><span class="etag">Operating Models</span><span class="etag">Change Leadership</span></div></div>
+      <div class="ecard reveal"><div class="eicon">🌍</div><div class="etitle">Strategic Leadership &amp; Team Building</div><div class="edesc">Building teams that scale: 8 specialists managing 5M devices; cross-enterprise collaboration across Toshiba, Accenture, Operations and CTO. Developing technical experts into strategic leaders.</div><div class="etags"><span class="etag">Team Development</span><span class="etag">Coaching</span><span class="etag">IIM Calcutta</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community">
+  <div class="sec-inner">
+    <div class="eyebrow reveal"><div class="eyebrow-line"></div><span>Community &amp; Civic Leadership</span></div>
+    <h2 class="st reveal">Leadership beyond <em>the workplace</em></h2>
+    <p class="sec-sub reveal">Active contribution to the communities and institutions that shape a more inclusive, vibrant society.</p>
+    <div class="cg">
+      <div class="ccard reveal"><div class="cicon">🏛️</div><div><div class="crole">Vice President · 6+ Years</div><div class="corg">Morley Indians Community Interest Company</div><div class="cdesc">Strategic management and community engagement for the Indian diaspora across Greater Leeds — driving diversity, inclusion and cultural connection at civic scale.</div></div></div>
+      <div class="ccard reveal"><div class="cicon">🏫</div><div><div class="crole">Governor</div><div class="corg">Gildersome Primary School</div><div class="cdesc">Contributing governance expertise to support diversity, inclusion and resource stewardship in primary education — shaping children's learning environments.</div></div></div>
+      <div class="ccard reveal"><div class="cicon">🎨</div><div><div class="crole">Trustee</div><div class="corg">South Asian Arts-UK, Leeds</div><div class="cdesc">Shaping SAA-UK's mission to promote, preserve and celebrate South Asian arts, music and culture — ensuring these traditions flourish across the UK.</div></div></div>
+      <div class="ccard reveal"><div class="cicon">⚖️</div><div><div class="crole">Treasurer</div><div class="corg">Leeds South West &amp; Morley Conservatives</div><div class="cdesc">Financial oversight and governance for the local constituency — supporting democratic engagement and community representation across South Leeds.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="sec-inner">
+    <div class="eyebrow reveal"><div class="eyebrow-line"></div><span>Education &amp; Credentials</span></div>
+    <h2 class="st reveal">Always <em>learning</em></h2>
+    <div class="edu-g" style="margin-top:2.5rem">
+      <div class="edu-c reveal"><div class="edu-yr">MIT · 2023</div><div class="edu-deg">Advanced Data Analytics</div><div class="edu-inst">Massachusetts Institute of Technology</div></div>
+      <div class="edu-c reveal"><div class="edu-yr">IIM Calcutta · 2022</div><div class="edu-deg">Strategic Management Programme</div><div class="edu-inst">Indian Institute of Management Calcutta</div></div>
+      <div class="edu-c reveal"><div class="edu-yr">2002</div><div class="edu-deg">Bachelor of Engineering</div><div class="edu-inst">University of Pune</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="eyebrow" style="margin-bottom:1rem"><div class="eyebrow-line"></div><span>Let's Connect</span></div>
+      <div class="chl">Ready to make a<br><em>difference together?</em></div>
+      <p class="csub">Whether you're looking to collaborate on data strategy, energy infrastructure, or technology leadership — I'd welcome the conversation.</p>
+      <a href="https://www.linkedin.com/in/chaturmohit/" target="_blank" class="btn-p"><span>Connect on LinkedIn</span></a>
+    </div>
+    <div class="clnks reveal">
+      <a href="https://www.linkedin.com/in/chaturmohit/" target="_blank" class="clnk"><div class="clnk-ico">in</div><div><div class="clnk-t">LinkedIn</div><div class="clnk-s">linkedin.com/in/chaturmohit</div></div></a>
+      <a href="mailto:15.mohit@gmail.com" class="clnk"><div class="clnk-ico">✉</div><div><div class="clnk-t">Email</div><div class="clnk-s">15.mohit@gmail.com</div></div></a>
+      <a href="https://wa.me/+447584267818" target="_blank" class="clnk"><div class="clnk-ico">💬</div><div><div class="clnk-t">WhatsApp</div><div class="clnk-s">+44 7584 267818</div></div></a>
+      <a href="https://www.facebook.com/chaturmohitji" target="_blank" class="clnk"><div class="clnk-ico">f</div><div><div class="clnk-t">Facebook</div><div class="clnk-s">facebook.com/chaturmohitji</div></div></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Mohit Chaturvedi · All rights reserved</p>
+  <nav class="fnav"><a href="#profile">Profile</a><a href="#experience">Experience</a><a href="#expertise">Expertise</a><a href="#contact">Contact</a></nav>
+</footer>
+
+<script>
+/* NAV */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), {passive:true});
+
+/* SLIDESHOW */
+const slides = document.querySelectorAll('.slide');
+const dots   = document.querySelectorAll('.sdot');
+const progs  = document.querySelectorAll('.spi');
+let cur = 0, tmr;
+
+function goTo(n) {
+  slides[cur].classList.remove('active');
+  dots[cur].classList.remove('active');
+  progs[cur].classList.remove('active');
+  progs[cur].classList.add('done');
+  cur = n;
+  slides[cur].classList.add('active');
+  dots[cur].classList.add('active');
+  progs[cur].classList.remove('done');
+  progs[cur].classList.add('active');
+}
+function next() { goTo((cur+1) % slides.length); }
+function startTmr() { clearInterval(tmr); tmr = setInterval(next, 5000); }
+dots.forEach(d => d.addEventListener('click', () => {
+  progs.forEach(p => p.classList.remove('active','done'));
+  goTo(parseInt(d.dataset.i)); startTmr();
+}));
+startTmr();
+
+/* TYPEWRITER */
+const phrases = [
+  "24 years building national data infrastructure.",
+  "Turning smart meter data into executive insight.",
+  "Shaping Britain's smarter, greener energy future.",
+  "Leading where data meets strategic impact.",
+];
+let pi=0, ci=0, del=false;
+const tw = document.getElementById('tw');
+function type() {
+  const ph = phrases[pi];
+  if (!del) {
+    tw.textContent = ph.slice(0,++ci);
+    if (ci === ph.length) { del=true; setTimeout(type,2200); return; }
+    setTimeout(type,55);
+  } else {
+    tw.textContent = ph.slice(0,--ci);
+    if (ci===0) { del=false; pi=(pi+1)%phrases.length; setTimeout(type,400); return; }
+    setTimeout(type,30);
+  }
+}
+setTimeout(type, 1800);
+
+/* PARTICLES */
+const pc = document.getElementById('particles');
+for(let i=0;i<28;i++){
+  const p = document.createElement('div');
+  p.className='particle';
+  p.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;--dur:${6+Math.random()*10}s;--del:${-Math.random()*12}s;background:${Math.random()>.6?'var(--teal-mid)':'var(--gold)'};`;
+  pc.appendChild(p);
+}
+
+/* SCROLL REVEAL */
+const revEls = document.querySelectorAll('.reveal,.rev-l,.tli,.ecard,.ccard,.edu-c,.ic,.ppw,.profile-text');
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(!e.isIntersecting) return;
+    const sibs = e.target.parentElement.querySelectorAll('.reveal,.rev-l,.tli,.ecard,.ccard,.edu-c,.ic');
+    let idx=0; sibs.forEach((s,i)=>{ if(s===e.target) idx=i; });
+    setTimeout(()=>e.target.classList.add('visible'), idx*90);
+    ro.unobserve(e.target);
+  });
+},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+revEls.forEach(el=>ro.observe(el));
+
+/* COUNTER */
+function count(el) {
+  if(el.dataset.counted) return;
+  el.dataset.counted='1';
+  const t=parseFloat(el.dataset.target), pre=el.dataset.prefix||'', suf=el.dataset.suffix||'';
+  const dur=1600, s=performance.now();
+  const step=now=>{
+    const p=Math.min((now-s)/dur,1), ease=1-Math.pow(1-p,3), v=ease*t;
+    el.textContent=pre+(Number.isInteger(t)?Math.floor(v):v.toFixed(1))+suf;
+    if(p<1) requestAnimationFrame(step);
+    else el.textContent=pre+t+suf;
+  };
+  requestAnimationFrame(step);
+}
+const co = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){const v=e.target.querySelector('.iv');if(v&&v.dataset.target) count(v);} });
+},{threshold:.5});
+document.querySelectorAll('.ic').forEach(c=>co.observe(c));
+
+/* ══════════════════════════════════════════════════════════
+   PHOTO CAROUSEL — Cinematic 3D Warp Engine
+   ══════════════════════════════════════════════════════════
+   HOW TO ADD YOUR PHOTOS:
+   Replace the src values below with your own image URLs.
+   Each entry has: src, caption title, caption subtitle.
+   Add as many as you like — the carousel adapts automatically.
+══════════════════════════════════════════════════════════ */
+const CAROUSEL_PHOTOS = [
+  {
+    src: "",  // ← Add your photo URL here
+    title: "Smart DCC — CTO Team",
+    sub:   "Leeds, UK · 2024"
+  },
+  {
+    src: "",  // ← Add your photo URL here
+    title: "National Forum Presentation",
+    sub:   "TABASC · London"
+  },
+  {
+    src: "",  // ← Add your photo URL here
+    title: "Morley Indians CIC",
+    sub:   "Community Leadership · Leeds"
+  },
+  {
+    src: "",  // ← Add your photo URL here
+    title: "Telefonica Smart Metering",
+    sub:   "Programme Leadership · 2021"
+  },
+  {
+    src: "",  // ← Add your photo URL here
+    title: "Industry Conference",
+    sub:   "Smart Energy Summit"
+  },
+  {
+    src: "",  // ← Add your photo URL here
+    title: "Team & Culture",
+    sub:   "Building what doesn't yet exist"
+  },
+];
+
+(function initCarousel() {
+  const track   = document.getElementById('caroTrack');
+  const stage   = document.getElementById('caroStage');
+  const dotsWrap= document.getElementById('caroDots');
+  const idxEl   = document.getElementById('caroIdx');
+  const totEl   = document.getElementById('caroTotal');
+  const btnPrev = document.getElementById('caroPrev');
+  const btnNext = document.getElementById('caroNext');
+
+  const N = CAROUSEL_PHOTOS.length;
+  totEl.textContent = N;
+
+  let current = 0;
+  let isAnimating = false;
+  let autoTimer;
+  const CARD_W = 360;
+  const CARD_H = 440;
+
+  /* Build cards */
+  const cards = CAROUSEL_PHOTOS.map((photo, i) => {
+    const card = document.createElement('div');
+    card.className = 'caro-card';
+    card.dataset.index = i;
+
+    if (photo.src && photo.src.trim() !== '') {
+      const img = document.createElement('img');
+      img.className = 'caro-img';
+      img.src = photo.src;
+      img.alt = photo.title;
+      img.loading = 'lazy';
+      card.appendChild(img);
+    } else {
+      const ph = document.createElement('div');
+      ph.className = 'caro-placeholder';
+      ph.innerHTML = `<div class="caro-placeholder-icon">📷</div><div class="caro-placeholder-text">Your photo here</div>`;
+      card.appendChild(ph);
+    }
+
+    /* Caption */
+    const cap = document.createElement('div');
+    cap.className = 'caro-caption';
+    cap.innerHTML = `<div class="caro-caption-title">${photo.title}</div><div class="caro-caption-sub">${photo.sub}</div>`;
+    card.appendChild(cap);
+
+    /* Reflection */
+    const ref = document.createElement('div');
+    ref.className = 'caro-reflect';
+    card.appendChild(ref);
+
+    /* Click to navigate */
+    card.addEventListener('click', () => {
+      const rel = parseInt(card.dataset.rel || 0);
+      if (rel > 0) navigate(1);
+      else if (rel < 0) navigate(-1);
+    });
+
+    track.appendChild(card);
+    return card;
+  });
+
+  /* Build dots */
+  const dots = CAROUSEL_PHOTOS.map((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'cdot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', `Slide ${i+1}`);
+    d.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(d);
+    return d;
+  });
+
+  /* ── Core 3D position layout ── */
+  function layout(activeIdx) {
+    const stageW = stage.offsetWidth;
+
+    cards.forEach((card, i) => {
+      /* relative index: 0=active, ±1=sides, ±2=far etc */
+      let rel = i - activeIdx;
+      /* wrap around for circular feel */
+      if (rel > N/2)  rel -= N;
+      if (rel < -N/2) rel += N;
+
+      card.dataset.rel = rel;
+
+      const absRel = Math.abs(rel);
+
+      /* ── Position parameters per depth slot ── */
+      let tx, ty, tz, ry, scale, opacity, zIndex, blur;
+
+      if (rel === 0) {
+        /* Centre / active */
+        tx = 0; ty = 0; tz = 0; ry = 0;
+        scale = 1; opacity = 1; zIndex = 10; blur = 0;
+        card.classList.add('is-active');
+      } else if (rel === 1) {
+        /* Right adjacent */
+        tx = CARD_W * 0.72; ty = 20; tz = -220;
+        ry = -28; scale = 0.82; opacity = 0.7; zIndex = 7; blur = 1;
+        card.classList.remove('is-active');
+      } else if (rel === -1) {
+        /* Left adjacent */
+        tx = -CARD_W * 0.72; ty = 20; tz = -220;
+        ry = 28; scale = 0.82; opacity = 0.7; zIndex = 7; blur = 1;
+        card.classList.remove('is-active');
+      } else if (rel === 2) {
+        /* Right far */
+        tx = CARD_W * 1.25; ty = 45; tz = -420;
+        ry = -42; scale = 0.62; opacity = 0.35; zIndex = 4; blur = 2;
+        card.classList.remove('is-active');
+      } else if (rel === -2) {
+        /* Left far */
+        tx = -CARD_W * 1.25; ty = 45; tz = -420;
+        ry = 42; scale = 0.62; opacity = 0.35; zIndex = 4; blur = 2;
+        card.classList.remove('is-active');
+      } else {
+        /* Hidden behind */
+        tx = rel > 0 ? CARD_W * 1.8 : -CARD_W * 1.8;
+        ty = 80; tz = -700;
+        ry = rel > 0 ? -55 : 55;
+        scale = 0.38; opacity = 0; zIndex = 1; blur = 4;
+        card.classList.remove('is-active');
+      }
+
+      card.style.cssText = `
+        transform: translateX(${tx}px) translateY(${ty}px) translateZ(${tz}px) rotateY(${ry}deg) scale(${scale});
+        opacity: ${opacity};
+        z-index: ${zIndex};
+        filter: blur(${blur}px) brightness(${rel===0 ? 1 : 0.75});
+        box-shadow: ${rel===0
+          ? '0 40px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(13,148,136,.2), 0 0 40px rgba(13,148,136,.08)'
+          : '0 20px 40px rgba(0,0,0,.4)'};
+        width:${CARD_W}px;
+        height:${CARD_H}px;
+      `;
+    });
+  }
+
+  function updateUI(idx) {
+    idxEl.textContent = idx + 1;
+    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+  }
+
+  function goTo(idx, dir) {
+    if (isAnimating || idx === current) return;
+    isAnimating = true;
+    current = ((idx % N) + N) % N;
+    layout(current);
+    updateUI(current);
+    setTimeout(() => { isAnimating = false; }, 950);
+    resetAuto();
+  }
+
+  function navigate(dir) {
+    goTo(current + dir, dir);
+  }
+
+  function resetAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => navigate(1), 4500);
+  }
+
+  /* Touch / drag support */
+  let touchStartX = 0;
+  stage.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+  stage.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) navigate(dx < 0 ? 1 : -1);
+  }, {passive:true});
+
+  /* Mouse drag */
+  let mouseStartX = 0, dragging = false;
+  stage.addEventListener('mousedown', e => { mouseStartX = e.clientX; dragging = true; });
+  stage.addEventListener('mouseup', e => {
+    if (!dragging) return; dragging = false;
+    const dx = e.clientX - mouseStartX;
+    if (Math.abs(dx) > 40) navigate(dx < 0 ? 1 : -1);
+  });
+  stage.addEventListener('mouseleave', () => { dragging = false; });
+
+  /* Keyboard */
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft')  navigate(-1);
+    if (e.key === 'ArrowRight') navigate(1);
+  });
+
+  btnPrev.addEventListener('click', () => navigate(-1));
+  btnNext.addEventListener('click', () => navigate(1));
+
+  /* Pause on hover */
+  stage.addEventListener('mouseenter', () => clearInterval(autoTimer));
+  stage.addEventListener('mouseleave', resetAuto);
+
+  /* Init */
+  layout(0);
+  updateUI(0);
+  resetAuto();
+
+  /* Re-layout on resize */
+  window.addEventListener('resize', () => layout(current), {passive:true});
+})();
+
+/* ACTIVE NAV */
+const secs = document.querySelectorAll('section[id]');
+const navAs = document.querySelectorAll('.nav-links a');
+new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) navAs.forEach(a=>{ a.style.color=a.getAttribute('href')===`#${e.target.id}`?'var(--white)':''; }); });
+},{threshold:.3}).observe.call(
+  (() => {
+    const obs = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{ if(e.isIntersecting) navAs.forEach(a=>{ a.style.color=a.getAttribute('href')===`#${e.target.id}`?'var(--white)':''; }); });
+    },{threshold:.3});
+    secs.forEach(s=>obs.observe(s));
+    return obs;
+  })()
+);
+</script>
+</body>
+</html>
